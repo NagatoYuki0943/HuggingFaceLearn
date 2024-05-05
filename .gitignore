@@ -1,0 +1,12 @@
+# dir
+__pycache__
+.idea
+.vscode
+
+# model
+*.pt
+*.pth
+*.ckpt
+*.torchscript
+*.onnx
+*.engine
