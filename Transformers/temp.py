@@ -14,8 +14,12 @@ url = "http://images.cocodataset.org/val2017/000000039769.jpg"
 image = Image.open(requests.get(url, stream=True).raw)
 
 prompt = "Question: how many cats are there? Answer:"
-inputs = processor(images=image, text=prompt, return_tensors="pt").to(device, torch.float16)
+inputs = processor(images=image, text=prompt, return_tensors="pt").to(
+    device, torch.float16
+)
 
 generated_ids = model.generate(**inputs)
-generated_text = processor.batch_decode(generated_ids, skip_special_tokens=True)[0].strip()
+generated_text = processor.batch_decode(generated_ids, skip_special_tokens=True)[
+    0
+].strip()
 print(generated_text)

@@ -1,4 +1,3 @@
-
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline, GenerationConfig
 
@@ -22,12 +21,12 @@ pipe = pipeline(
 )
 
 generation_config = GenerationConfig(
-    max_new_tokens = 1024,
-    do_sample = True,
-    num_beams = 1,
-    temperature = 0.8,
-    top_k = 40,
-    top_p = 0.8,
+    max_new_tokens=1024,
+    do_sample=True,
+    num_beams=1,
+    temperature=0.8,
+    top_k=40,
+    top_p=0.8,
 )
 
 generation_args = {
@@ -41,11 +40,20 @@ generation_args = {
 }
 
 messages = [
-    {"role": "system", "content": "You are a helpful digital assistant. Please provide safe, ethical and accurate information to the user."},
-    {"role": "user", "content": "Can you provide ways to eat combinations of bananas and dragonfruits?"},
-    {"role": "assistant", "content": "Sure! Here are some ways to eat bananas and dragonfruits together: 1. Banana and dragonfruit smoothie: Blend bananas and dragonfruits together with some milk and honey. 2. Banana and dragonfruit salad: Mix sliced bananas and dragonfruits together with some lemon juice and honey."},
+    {
+        "role": "system",
+        "content": "You are a helpful digital assistant. Please provide safe, ethical and accurate information to the user.",
+    },
+    {
+        "role": "user",
+        "content": "Can you provide ways to eat combinations of bananas and dragonfruits?",
+    },
+    {
+        "role": "assistant",
+        "content": "Sure! Here are some ways to eat bananas and dragonfruits together: 1. Banana and dragonfruit smoothie: Blend bananas and dragonfruits together with some milk and honey. 2. Banana and dragonfruit salad: Mix sliced bananas and dragonfruits together with some lemon juice and honey.",
+    },
     {"role": "user", "content": "What about solving an 2x + 3 = 7 equation?"},
 ]
 
 output = pipe(messages, **generation_args)
-print(output[0]['generated_text'])
+print(output[0]["generated_text"])
