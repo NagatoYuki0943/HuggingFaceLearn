@@ -71,7 +71,6 @@ class RemoteCodeLoader:
         return load_remote_code(model_path, class_name, **kwargs)
 
 
-# 示例用法
 if __name__ == "__main__":
     # 方法1：直接使用load_remote_code函数
     model1 = load_remote_code(
